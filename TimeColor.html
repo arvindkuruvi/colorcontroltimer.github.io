@@ -19,7 +19,7 @@
         {
             position: relative;
             left: 300px;
-            width: 700px;
+            width: 800px;
             background-color: aquamarine;
             height: 60px;
             font-size: 50px;
@@ -182,9 +182,21 @@ let changeBgColor =() =>{
 }
 let dispTime = document.querySelector("#dispTime");
 let date = () =>{
+    let hour;
+    let meridian = "AM";
     let d = new Date();
     let days = ["Sun" , "Mon" , "Tue" , "Wed" , "Thur" , "Fri" , "Sat"]
-    let clock =`${d.getHours()} : ${d.getMinutes()} : ${d.getSeconds()} , ${days[d.getDay()]}`
+    let month =["Jan" , "Feb" , "Mar" , "Apr" , "May" ,"Jun" , "Jul" , "Aug" , "Sept" , "Oct" ,"Nov","Dec"];
+    if(d.getHours() > 12)
+    {
+       hour = d.getHours() - 12;
+       meridian = "PM" ;
+    }
+    else
+    {
+        meridian = "AM";
+    }
+    let clock =`${hour} : ${d.getMinutes()} : ${d.getSeconds()} ${meridian} , ${d.getDate()} ${month[d.getMonth()]} ${days[d.getDay()]}  ${d.getFullYear()}`
     dispTime.innerHTML = clock;
     changeBgColor();
 }
