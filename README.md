@@ -1,3 +1,3 @@
-# colorcontroltimer
+# Color control timer
 
 
